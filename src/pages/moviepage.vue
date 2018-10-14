@@ -1,23 +1,38 @@
 <template>
     <div>
-        <div>{{ movie.title }}</div>
-        <form v-on:submit.prevent="addComment()">
-            <input v-model="text" type="text" name="text" vale="" placeholder="Write a comment">
-            <button type="submit" name="Submit">Submit</button>
-        </form>
-        <ul>
-            <li v-for="comment in movie.comments" :key="comment.text">{{ comment.text }}</li>
-        </ul>
+        <v-container>
+            <v-card>
+                <movie-page-header :movie="movie" />
+                
+            </v-card>
+
+
+            <v-card>
+                <form v-on:submit.prevent="addComment()">
+                    <input v-model="text" type="text" name="text" vale="" placeholder="Write a comment">
+                    <button type="submit" name="Submit">Submit</button>
+                </form>
+                <ul>
+                    <li v-for="comment in movie.comments" :key="comment.text">{{ comment.text }}</li>
+                </ul>
+            </v-card>
+        </v-container>
+
+
+        
     </div>
 </template>
 
 
 <script>
-import Movie from '../components/movie';
+import MoviePageHeader from '../components/moviepageheader';
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
     name: 'MoviePage',
+    components: {
+        MoviePageHeader
+    },
     props: ['id'],
     computed: {
         ...mapGetters({
