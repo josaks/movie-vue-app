@@ -1,6 +1,9 @@
 <template>
-    <v-toolbar>
-        <v-toolbar-title>{{ movie.title }}<span class="subheading">{{ `(${movie.year})` }}</span></v-toolbar-title>
+    <v-toolbar flat dense>
+        <v-toolbar-title>
+            <span>{{ movie.title }}</span>
+            <span class="subheading">{{ `(${movie.year})` }}</span>
+        </v-toolbar-title>
         <v-spacer />
         <div>
             Average rating: {{ movie.averageRating }} / 10 | Rate this
