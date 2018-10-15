@@ -1,9 +1,15 @@
 <template>
     <div>
-        <form v-on:submit.prevent="addComment()">
-            <input v-model="text" type="text" name="text" vale="" placeholder="Write a comment">
-            <button type="submit" name="Submit">Submit</button>
-        </form>
+        <v-form v-on:submit.prevent="addComment()">
+            <v-text-field 
+                multi-line 
+                v-model="text"
+                lable="Text"
+                required
+                placeholder="Write a comment"
+            />
+            <v-btn @click="submit">Submit</v-btn>
+        </v-form>
     </div>
 </template>
 

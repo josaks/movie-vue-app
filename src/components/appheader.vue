@@ -1,6 +1,8 @@
 <template>
     <v-toolbar dark color="primary">
-        <v-toolbar-side-icon></v-toolbar-side-icon>
+        <v-toolbar-side-icon>
+        </v-toolbar-side-icon>
+
         <v-toolbar-title>
             <router-link class="white--text removeUnderline" to="/">Movies</router-link>
         </v-toolbar-title>
