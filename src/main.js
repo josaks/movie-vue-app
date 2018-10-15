@@ -5,12 +5,11 @@ import app from './app';
 import HomePage from './pages/homepage';
 import MoviePage from './pages/moviepage';
 import Vuetify from 'vuetify';
-import { adalConfig, Adal } from './authentication/auth';
+import Adal from 'vue-adal';
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(VueRouter);
 Vue.use(Vuetify);
-Vue.use(Adal, adalConfig);
 
 const routes = [
     { path: '/', component: HomePage },
@@ -22,6 +21,19 @@ const router = new VueRouter({
     routes,
     mode: "history",
 });
+
+const adalConfig = {
+    config: {
+      tenant: '<guid>',
+      clientId: '<guid>',
+      redirectUri: '<host addr>',
+      cacheLocation: 'localStorage'
+    },
+    requireAuthOnInitialize: false,
+    router: router
+  };
+Vue.use(Adal, adalConfig);
+
 
 new Vue({
   el: '#app',

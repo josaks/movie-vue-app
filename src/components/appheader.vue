@@ -16,7 +16,7 @@
             <v-list>
                 <v-list-tile>
                     <v-list-tile-action @click="login">
-                        Log in
+                        <div id="login">Log in</div>
                     </v-list-tile-action>
                 </v-list-tile>
             </v-list>
@@ -25,11 +25,14 @@
 </template>
 
 <script>
+import { AuthenticationContext } from 'vue-adal';
+
 export default {
     name: 'AppHeader',
     methods: {
         login(){
             /* Do authentication and log in */
+            AuthenticationContext.login();
         },
     }
 }
@@ -38,5 +41,8 @@ export default {
 <style scoped>
 .removeUnderline {
     text-decoration: none;
+}
+#login {
+    cursor: pointer;
 }
 </style>
