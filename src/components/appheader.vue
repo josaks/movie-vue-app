@@ -7,16 +7,30 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn icon>
-            <v-icon>account_circle</v-icon>
-        </v-btn>
+        <v-menu :nudge-width="100">
+            <v-toolbar-title slot="activator">
+                <v-btn icon>
+                    <v-icon>account_circle</v-icon>
+                </v-btn>
+            </v-toolbar-title>
+            <v-list>
+                <v-list-tile>
+                    <v-list-tile-action @click="login">
+                        Log in
+                    </v-list-tile-action>
+                </v-list-tile>
+            </v-list>
+        </v-menu>
     </v-toolbar>
 </template>
 
 <script>
 export default {
     name: 'AppHeader',
-    components: {
+    methods: {
+        login(){
+            /* Do authentication and log in */
+        },
     }
 }
 </script>

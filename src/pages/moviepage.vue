@@ -12,17 +12,11 @@
             </v-card>
 
             <v-card id="misc">
-                Section with actors, genres, etc here
+                <movie-misc :movie="movie" />
             </v-card>
 
             <v-card id="commentsection">
-                <form v-on:submit.prevent="addComment()">
-                    <input v-model="text" type="text" name="text" vale="" placeholder="Write a comment">
-                    <button type="submit" name="Submit">Submit</button>
-                </form>
-                <ul>
-                    <li v-for="comment in movie.comments" :key="comment.text">{{ comment.text }}</li>
-                </ul>
+                <comment-section :movie="movie" />
             </v-card>
         </v-container>
     </div>
@@ -31,31 +25,21 @@
 
 <script>
 import MoviePageHeader from '../components/moviepageheader';
-import { mapGetters, mapActions } from 'vuex';
+import MovieMisc from '../components/moviemisc';
+import CommentSection from '../components/commentSection';
 
 export default {
     name: 'MoviePage',
     components: {
-        MoviePageHeader
+        MoviePageHeader,
+        MovieMisc,
+        CommentSection
     },
     props: ['id'],
     computed: {
-        ...mapGetters({
-            comments: 'comments',
-        }),
         movie: function() {
             return this.$store.getters['movie'](parseInt(this.id));
         },
-    },
-    methods: {
-        ...mapActions({
-            addComment: 'addComment',
-        })
-    },
-    data() {
-        return {
-            text: "",
-        }
     },
 };
 </script>

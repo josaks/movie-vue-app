@@ -8,7 +8,7 @@ Vue.use(Vuex);
 const movieModule = {
     state: {
         movies: [
-            { id: 1, title: 'Black Panther', posterURL: "", rating: 5, comments: [{ id: 1, movieId: 1, text: "test" }], storyline: ''},
+            { id: 1, title: 'Black Panther', posterURL: "", rating: 5, comments: [{ id: 1, movieId: 1, text: "test" }], storyline: '', actors: [], genres: []},
         ],
       },
     mutations: {
