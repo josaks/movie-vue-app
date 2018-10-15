@@ -5,10 +5,12 @@ import app from './app';
 import HomePage from './pages/homepage';
 import MoviePage from './pages/moviepage';
 import Vuetify from 'vuetify';
+import { adalConfig, Adal } from './authentication/auth';
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(VueRouter);
 Vue.use(Vuetify);
+Vue.use(Adal, adalConfig);
 
 const routes = [
     { path: '/', component: HomePage },
@@ -17,7 +19,8 @@ const routes = [
 ];
 
 const router = new VueRouter({
-    routes
+    routes,
+    mode: "history",
 });
 
 new Vue({
