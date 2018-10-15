@@ -4,14 +4,6 @@
             <input v-model="text" type="text" name="text" vale="" placeholder="Write a comment">
             <button type="submit" name="Submit">Submit</button>
         </form>
-        <div class="comment" v-for="comment in movie.comments" :key="comment.text">
-            <div>
-                {{ comment.text }}
-            </div>
-            <div>
-                {{ comment.author }} - {{ comment.date }}
-            </div>
-        </div>
     </div>
 </template>
 
@@ -19,7 +11,7 @@
 import { mapActions } from 'vuex';
 
 export default {
-    name: "CommentSection",
+    name: "CommentForm",
     props: ["movie"],
     methods: {
         ...mapActions({
@@ -34,8 +26,12 @@ export default {
 }
 </script>
 
-<style>
-.comment {
-    margin-bottom: 1%;
+<style scoped>
+form {
+    display: flex;
+    flex-direction: row;
+}
+form input {
+    flex: 1;
 }
 </style>

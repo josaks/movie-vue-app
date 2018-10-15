@@ -16,7 +16,11 @@
             </v-card>
 
             <v-card id="commentsection">
-                <comment-section :movie="movie" />
+                <comment-form :movie="movie" />
+            </v-card>
+
+            <v-card id="commentsection">
+                <comments :movie="movie" />
             </v-card>
         </v-container>
     </div>
@@ -26,14 +30,17 @@
 <script>
 import MoviePageHeader from '../components/moviepageheader';
 import MovieMisc from '../components/moviemisc';
-import CommentSection from '../components/commentSection';
+import CommentForm from '../components/commentform';
+import Comments from '../components/comments';
+
 
 export default {
     name: 'MoviePage',
     components: {
         MoviePageHeader,
         MovieMisc,
-        CommentSection
+        CommentForm,
+        Comments
     },
     props: ['id'],
     computed: {
@@ -44,17 +51,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #misc,
 #storyline,
 #commentsection {
     padding: 12px;
 }
-form {
-    display: flex;
-    flex-direction: row;
-}
-form input {
-    flex: 1;
-}
+
 </style>
