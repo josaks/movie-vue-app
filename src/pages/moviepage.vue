@@ -4,11 +4,7 @@
             <v-card><movie-page-header :movie="movie" /></v-card>
             
             <v-card id="storyline">
-                <v-layout>
-                    <v-flex xs12 sm8>
-                        {{ movie.storyline }}
-                    </v-flex>
-                </v-layout>
+                <storyline :movie="movie" />
             </v-card>
 
             <v-card id="misc">
@@ -32,7 +28,7 @@ import MoviePageHeader from '../components/moviepageheader';
 import MovieMisc from '../components/moviemisc';
 import CommentForm from '../components/commentform';
 import Comments from '../components/comments';
-
+import Storyline from '../components/storyline';
 
 export default {
     name: 'MoviePage',
@@ -40,7 +36,8 @@ export default {
         MoviePageHeader,
         MovieMisc,
         CommentForm,
-        Comments
+        Comments,
+        Storyline,
     },
     props: ['id'],
     computed: {

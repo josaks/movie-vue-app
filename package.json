@@ -8,10 +8,11 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "test": "jest unit",
+    "test": "jest --verbose=true unit",
     "clearJestCache": "jest --clearCache"
   },
   "jest": {
+    "setupFiles": ["<rootDir>/test/setup.js"],
     "moduleFileExtensions": [
       "js",
       "json",
