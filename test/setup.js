@@ -3,11 +3,12 @@
 import { shallowMount, mount } from '@vue/test-utils';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
-
+import Vuex from "vuex";
 
 /* Set globals for tests */
 global.shallowMount = shallowMount;
 global.mount = mount;
+global.Vuex = Vuex;
 
 /*
 Mute vuetify and vue errors:
@@ -24,4 +25,8 @@ global.console = {
 
 /* Register vuetify for use in our tests */
 Vue.use(Vuetify);
+/* Register vuex for use in our test */
+Vue.use(Vuex);
+
+
 window.Vue = Vue;
