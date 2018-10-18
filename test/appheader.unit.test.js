@@ -4,16 +4,15 @@ import { RouterLinkStub } from "@vue/test-utils";
 
 describe("Appheader", () => {
     let appHeader;
+    const mockLogin = jest.fn();
 
     beforeEach(() => {
-        appHeader = shallowMount(AppHeader, {
-            methods: {
-                login() {}
-            },
+        appHeader = mount(AppHeader, {
             stubs: {
                 RouterLink: RouterLinkStub,
             }
         });
+        appHeader.setMethods({ login: mockLogin });
     });
 
 
@@ -22,7 +21,7 @@ describe("Appheader", () => {
     });
 
     it("renders a toolbar", () => {
-        expect(appHeader.contains("vtoolbar-stub")).toBeTruthy();
+        expect(appHeader.contains(".v-toolbar")).toBeTruthy();
     });
 
     it("renders a router link", () => {
@@ -30,7 +29,11 @@ describe("Appheader", () => {
     });
 
     it("renders a spacer", () => {
-        expect(appHeader.contains("vspacer-stub")).toBeTruthy();
+        expect(appHeader.contains(".spacer")).toBeTruthy();
+    });
+
+    it("renders a menu", () => {
+        expect(appHeader.contains(".v-menu")).toBeTruthy();
     });
 
     describe("Menu", () => {
@@ -38,18 +41,26 @@ describe("Appheader", () => {
         let button;
 
         beforeEach(() => {
-            menu = appHeader.find("vmenu-stub");
-            button = menu.find("vbtn-stub");
+            menu = appHeader.find(".v-menu");
+            button = menu.find(".v-btn");
         });
         
-        it("is rendered", () => {
-            expect(appHeader.contains("vmenu-stub")).toBeTruthy();
+        it("renders a button with icon", () => {
+            expect(button.exists()).toBeTruthy();
+            const icon = button.find(".v-icon");
+            expect(icon.exists()).toBeTruthy();
         });
 
-        it("contains a button that looks like an icon", () => {
-            expect(button.exists()).toBeTruthy();
-            const icon = button.find("vicon-stub");
-            expect(icon.exists()).toBeTruthy();
+        describe("Log-in-tile in menu", () => {
+            beforeEach(() => {
+                menu = appHeader.find(".v-menu");
+            });
+
+            it("calls login method when clicked", () => {
+                const action = menu.find(".v-list__tile__action");
+                action.trigger("click");
+                expect(mockLogin).toBeCalled();
+            });
         });
     });
 });

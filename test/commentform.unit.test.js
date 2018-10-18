@@ -2,9 +2,9 @@ import CommentForm from "../src/components/commentform";
 
 
 describe("Comment form", () => {
-    const mockMethod = jest.fn();
+    const mockSubmit = jest.fn();
     const commentForm = mount(CommentForm);
-    commentForm.setMethods({ submit: mockMethod });
+    commentForm.setMethods({ submit: mockSubmit });
 
     it("renders a vue instance", () => {
         expect(commentForm.isVueInstance()).toBeTruthy();
@@ -23,7 +23,7 @@ describe("Comment form", () => {
         it("calls correct method when clicked", () => {
             const btn = commentForm.find(".v-btn");
             btn.trigger("click");
-            expect(mockMethod).toBeCalled();
+            expect(mockSubmit).toBeCalled();
         });
     });
 });
