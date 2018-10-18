@@ -4,8 +4,8 @@ describe("Movielist", () => {
     const expectedMovies = [{id: 1}, {id: 2}, {id: 3}];
     const getters = {
         movies: () => expectedMovies
-    }
-    const store = new Vuex.Store({ getters })
+    };
+    const store = new Vuex.Store({ getters });
     const movieList = shallowMount(MovieList, { store });
 
     it("renders a vue instance", () => {

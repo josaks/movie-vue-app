@@ -1,6 +1,7 @@
 <template>
     <div id="picker">
         <v-icon 
+            class="icon"
             v-for="index in 10" 
             color="yellow" 
             :key="index"
