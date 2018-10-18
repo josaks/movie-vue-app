@@ -1,7 +1,7 @@
 <template>
     <v-toolbar flat dense>
         <v-toolbar-title>
-            <span>{{ movie.title }}</span>
+            <span class="title">{{ movie.title }}</span>
             <span class="subheading">{{ `(${movie.year})` }}</span>
         </v-toolbar-title>
 
