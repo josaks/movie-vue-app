@@ -7,6 +7,7 @@ import Vuetify from 'vuetify';
 
 /* Set globals for tests */
 global.shallowMount = shallowMount;
+global.mount = mount;
 
 /* Register vuetify for use in our tests */
 Vue.use(Vuetify);

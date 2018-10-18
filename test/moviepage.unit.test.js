@@ -31,7 +31,6 @@ describe("Moviepage", () => {
     ];
 
     describe.each(components)("Its %s", (compName, selector) => {
-        
         const header = vContainer.find(selector);
         const { movie } = header.props();
 
@@ -43,69 +42,4 @@ describe("Moviepage", () => {
             expect(movie).toBe(expectedMovie);
         });
     });
-
-    // describe("its header", () => {
-    //     const header = vContainer.find("moviepageheader-stub");
-    //     const { movie } = header.props();
-
-    //     it("is rendered", () => {
-    //         expect(vContainer.contains("moviepageheader-stub")).toBeTruthy();
-    //     });
-
-    //     it("gets the right movie as prop", () => {
-    //         expect(movie).toBe(expectedMovie);
-    //     });
-    // });
-
-    // describe("its storyline", () => {
-    //     const storyline = vContainer.find("storyline-stub");
-    //     const { movie } = storyline.props();
-
-    //     it("is rendered", () => {
-    //         expect(vContainer.contains("storyline-stub")).toBeTruthy();
-    //     });
-
-    //     it("gets the right movie as prop", () => {
-    //         expect(movie).toBe(expectedMovie);
-    //     });
-    // });
-
-    // describe("its misc info section", () => {
-    //     const storyline = vContainer.find("moviemisc-stub");
-    //     const { movie } = storyline.props();
-
-    //     it("is rendered", () => {
-    //         expect(vContainer.contains("moviemisc-stub")).toBeTruthy();
-    //     });
-
-    //     it("gets the right movie as prop", () => {
-    //         expect(movie).toBe(expectedMovie);
-    //     });
-    // });
-
-    // describe("its commentform", () => {
-    //     const storyline = vContainer.find("commentform-stub");
-    //     const { movie } = storyline.props();
-
-    //     it("is rendered", () => {
-    //         expect(vContainer.contains("commentform-stub")).toBeTruthy();
-    //     });
-
-    //     it("gets the right movie as prop", () => {
-    //         expect(movie).toBe(expectedMovie);
-    //     });
-    // });
-
-    // describe("its list of comments", () => {
-    //     const storyline = vContainer.find("comments-stub");
-    //     const { movie } = storyline.props();
-
-    //     it("is rendered", () => {
-    //         expect(vContainer.contains("comments-stub")).toBeTruthy();
-    //     });
-
-    //     it("gets the right movie as prop", () => {
-    //         expect(movie).toBe(expectedMovie);
-    //     });
-    // });
 });

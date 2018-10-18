@@ -1,8 +1,7 @@
 <template>
     <div>
         <v-form v-on:submit.prevent="addComment()">
-            <v-text-field 
-                multi-line 
+            <v-textarea
                 v-model="text"
                 lable="Text"
                 required
