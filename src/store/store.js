@@ -18,8 +18,8 @@ const movieModule = {
         addMovie (state, { movie }) {
             state.movies.push(movie);
         },
-        addComment(state, { movieId, comment}){
-            state.movies[movieId].push(comment);
+        addComment(state, comment){
+            state.movies[comment.movieId].push(comment);
         }
       },
     actions: {
@@ -32,8 +32,8 @@ const movieModule = {
         addMovie ({ commit }, payload) {
             commit('addMovie', { movie: payload });
           },
-        addComment({ commit }, payload){
-            commit('addComment', payload);
+        addComment({ commit }, comment){
+            commit('addComment', comment);
         }
       },
     getters: {

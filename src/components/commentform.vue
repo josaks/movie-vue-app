@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-form v-on:submit.prevent="addComment()">
+        <v-form ref="form">
             <v-textarea
                 v-model="text"
                 lable="Text"
@@ -21,7 +21,15 @@ export default {
     methods: {
         ...mapActions({
             addComment: 'addComment',
-        })
+        }),
+        submit() {
+            if(this.$refs.form.validate()) {
+                this.addComment({
+                    movieId: this.movie.id, 
+                    text: this.text 
+                });
+            }
+        }
     },
     data() {
         return {
