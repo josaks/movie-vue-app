@@ -7,6 +7,9 @@ describe("Appheader", () => {
 
     beforeEach(() => {
         appHeader = shallowMount(AppHeader, {
+            methods: {
+                login() {}
+            },
             stubs: {
                 RouterLink: RouterLinkStub,
             }
